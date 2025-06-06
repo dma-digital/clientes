@@ -66,22 +66,38 @@
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
         }
 
+        /* Estilo para o botão menor no final */
+        .whatsapp-button.small {
+            font-size: 1rem;
+            padding: 12px 25px;
+            margin-top: 3rem;
+            margin-bottom: 0;
+        }
+
         /* Grid de Feedbacks */
         .feedback-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            row-gap: 3rem; /* Espaço maior entre as linhas para acomodar o botão */
             justify-content: center;
         }
 
-        /* Card de Feedback Individual */
+        /* Container para cada item (card + botão) */
+        .feedback-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Card de Feedback (apenas a mídia) */
         .feedback-card {
-            position: relative;
             border-radius: 12px;
             overflow: hidden;
             border: 2px solid #aa8960;
             transition: transform 0.3s ease;
-            background-color: #1a1a1a; /* Fundo para o caso do vídeo demorar a carregar */
+            background-color: #1a1a1a;
+            width: 100%;
         }
         
         .feedback-card:hover {
@@ -92,38 +108,28 @@
         .feedback-card img,
         .feedback-card video {
             width: 100%;
-            height: 100%; /* Faz o vídeo preencher o card */
-            object-fit: cover; /* Garante que o vídeo cubra todo o espaço sem distorcer */
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        /* Botão com o link do cliente (dentro do card) */
-        .client-link {
-            position: absolute;
-            bottom: 20px; /* Posição padrão para cards de imagem */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            background-color: rgba(170, 137, 96, 0.9); /* Fundo com leve transparência */
+        /* Botão do cliente (fora do card) */
+        .client-button {
+            display: block;
+            width: 100%;
+            margin-top: 1rem; /* Espaço entre o card e o botão */
+            background-color: #aa8960;
             color: #000000;
             padding: 12px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            backdrop-filter: blur(2px); /* Efeito de desfoque no fundo do botão */
-            transition: background-color 0.3s ease, bottom 0.3s ease;
-            z-index: 10; /* Garante que o botão fique sobre os controles do vídeo */
+            transition: background-color 0.3s ease;
         }
         
-        /* Posição ajustada para o botão em cards de vídeo, para não sobrepor os controles */
-        .feedback-card.video-card .client-link {
-            bottom: 75px; 
-        }
-
-        .client-link:hover {
-            background-color: rgba(201, 167, 125, 1);
+        .client-button:hover {
+            background-color: #c9a77d;
         }
         
         /* Seção de Clientes por Nicho */
@@ -197,8 +203,7 @@
 
     <div class="container">
         
-        <!-- Lembre-se de colocar o nome correto do seu arquivo de logo aqui -->
-        <img src="sua-logo.png" alt="Logo DMA Digital" class="logo">
+        <img src="logo DMA PRETO.jpg" alt="Logo DMA Digital" class="logo">
 
         <h1>Feedbacks de Clientes - DMA Digital</h1>
 
@@ -208,39 +213,49 @@
 
         <div class="feedback-grid">
             
-            <div class="feedback-card video-card">
-                <!-- O atributo 'poster' foi removido para evitar erro de arquivo não encontrado -->
-                <video autoplay loop muted playsinline controls>
-                    <source src="Video1.mp4" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-                <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-link">@adeliabarros_advogada</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <video autoplay loop muted playsinline controls>
+                        <source src="Video1.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+                </div>
+                <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-button">@adeliabarros_advogada</a>
             </div>
 
-            <div class="feedback-card">
-                <!-- O nome do arquivo foi corrigido para minúsculas -->
-                <img src="2.png" alt="Feedback do Cliente 2">
-                <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-link">@leandrokoller.adv</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <img src="2.png" alt="Feedback do Cliente 2">
+                </div>
+                <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-button">@leandrokoller.adv</a>
             </div>
 
-            <div class="feedback-card">
-                <img src="3.jpg" alt="Feedback do Cliente 3">
-                <a href="https://www.instagram.com/advogadanayana/" target="_blank" class="client-link">@advogadanayana</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <img src="3.jpg" alt="Feedback do Cliente 3">
+                </div>
+                <a href="https://www.instagram.com/advogadanayana/" target="_blank" class="client-button">@advogadanayana</a>
             </div>
 
-            <div class="feedback-card">
-                <img src="4.jpeg" alt="Feedback do Cliente 4">
-                <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-link">@advinocentejordem</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <img src="4.jpeg" alt="Feedback do Cliente 4">
+                </div>
+                <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-button">@advinocentejordem</a>
             </div>
 
-            <div class="feedback-card">
-                <img src="5.jpg" alt="Feedback do Cliente 5">
-                <a href="https://www.instagram.com/evertonbruno_adv/" target="_blank" class="client-link">@evertonbruno_adv</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <img src="5.jpg" alt="Feedback do Cliente 5">
+                </div>
+                <a href="https://www.instagram.com/evertonbruno_adv/" target="_blank" class="client-button">@evertonbruno_adv</a>
             </div>
 
-            <div class="feedback-card">
-                <img src="6.jpg" alt="Feedback do Cliente 6">
-                <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-link">@adeliabarros_advogada</a>
+            <div class="feedback-item">
+                <div class="feedback-card">
+                    <img src="6.jpg" alt="Feedback do Cliente 6">
+                </div>
+                <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-button">@adeliabarros_advogada</a>
             </div>
 
         </div>
@@ -286,6 +301,10 @@
                 </div>
             </div>
         </div>
+
+        <a href="https://wa.me/5519982469775?text=Oi%20Beatriz%2C%20quero%20agendar%20uma%20reuni%C3%A3o%20com%20voc%C3%As!" class="whatsapp-button small" target="_blank">
+            Agende uma reunião
+        </a>
 
         <footer>
             <p>&copy; 2025 DMA DIGITAL. Todos os direitos reservados.</p>
