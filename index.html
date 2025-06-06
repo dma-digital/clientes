@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks de Clientes - DMA DIGITAL</title>
+    
+    <!-- Importa a fonte Montserrat do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #aa8960;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Logo */
+        .logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Título Principal */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* Botão de Contato (WhatsApp) */
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366; /* Verde do WhatsApp */
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Grid de Feedbacks */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* Card de Feedback Individual */
+        .feedback-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #aa8960;
+            transition: transform 0.3s ease;
+            background-color: #1a1a1a; /* Fundo para o caso do vídeo demorar a carregar */
+        }
+        
+        .feedback-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Estilo para imagem e vídeo dentro do card */
+        .feedback-card img,
+        .feedback-card video {
+            width: 100%;
+            height: 100%; /* Faz o vídeo preencher o card */
+            object-fit: cover; /* Garante que o vídeo cubra todo o espaço sem distorcer */
+            display: block;
+        }
+
+        /* Botão com o link do cliente (dentro do card) */
+        .client-link {
+            position: absolute;
+            bottom: 20px; /* Posição padrão para cards de imagem */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            background-color: rgba(170, 137, 96, 0.9); /* Fundo com leve transparência */
+            color: #000000;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px); /* Efeito de desfoque no fundo do botão */
+            transition: background-color 0.3s ease, bottom 0.3s ease;
+            z-index: 10; /* Garante que o botão fique sobre os controles do vídeo */
+        }
+        
+        /* Posição ajustada para o botão em cards de vídeo, para não sobrepor os controles */
+        .feedback-card.video-card .client-link {
+            bottom: 75px; 
+        }
+
+        .client-link:hover {
+            background-color: rgba(201, 167, 125, 1);
+        }
+        
+        /* Seção de Clientes por Nicho */
+        .clients-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #aa8960;
+        }
+
+        .clients-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .client-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .client-category h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            border-bottom: 1px solid #aa8960;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .client-links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .client-tag {
+            background-color: transparent;
+            border: 1px solid #aa8960;
+            color: #aa8960;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .client-tag:hover {
+            background-color: #aa8960;
+            color: #000000;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #aa8960;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: #aa8960;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <img src="https://placehold.co/400x150/000000/aa8960?text=DMA+DIGITAL" alt="Logo DMA Digital" class="logo"
+        onerror="this.onerror=null;this.src='https://placehold.co/400x150/000000/aa8960?text=Logo+N%C3%A3o+Encontrada';">
+
+        <h1>Feedbacks de Clientes - DMA Digital</h1>
+
+        <a href="https://wa.me/5519982469775?text=Oi%20Beatriz%2C%20quero%20agendar%20uma%20reuni%C3%A3o%20com%20voc%C3%As!" class="whatsapp-button" target="_blank">
+            Entre em contato pelo WhatsApp
+        </a>
+
+        <!-- Seção com os cards de feedback -->
+        <div class="feedback-grid">
+            
+            <!-- CARD 1 (VÍDEO COM CONTROLES) -->
+            <div class="feedback-card video-card">
+                <video poster="https://placehold.co/600x800/111111/333333?text=Carregando+V%C3%ADdeo..." autoplay loop muted playsinline controls>
+                    <!-- O caminho do vídeo foi atualizado para a pasta 'imagens' -->
+                    <source src="imagens/seu-video.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <a href="https://instagram.com/advocacia.exemplar" target="_blank" class="client-link">@advocacia.exemplar</a>
+            </div>
+
+            <!-- CARD 2 (IMAGEM) -->
+            <div class="feedback-card">
+                <img src="imagens/feedback-2.png" alt="Feedback do Cliente 2" onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333?text=Imagem+N%C3%A3o+Encontrada';">
+                <a href="https://instagram.com/direito.digital.br" target="_blank" class="client-link">@direito.digital.br</a>
+            </div>
+
+            <!-- CARD 3 (IMAGEM) -->
+            <div class="feedback-card">
+                <img src="imagens/feedback-3.png" alt="Feedback do Cliente 3" onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333?text=Imagem+N%C3%A3o+Encontrada';">
+                <a href="https://instagram.com/juridico.martins" target="_blank" class="client-link">@juridico.martins</a>
+            </div>
+
+            <!-- CARD 4 (IMAGEM) -->
+            <div class="feedback-card">
+                <img src="imagens/feedback-4.png" alt="Feedback do Cliente 4" onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333?text=Imagem+N%C3%A3o+Encontrada';">
+                <a href="https://instagram.com/adv.fernanda.costa" target="_blank" class="client-link">@adv.fernanda.costa</a>
+            </div>
+
+            <!-- CARD 5 (IMAGEM) -->
+            <div class="feedback-card">
+                <img src="imagens/feedback-5.png" alt="Feedback do Cliente 5" onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333?text=Imagem+N%C3%A3o+Encontrada';">
+                <a href="https://instagram.com/legis.consultoria" target="_blank" class="client-link">@legis.consultoria</a>
+            </div>
+
+            <!-- CARD 6 (IMAGEM) -->
+            <div class="feedback-card">
+                <img src="imagens/feedback-6.png" alt="Feedback do Cliente 6" onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333?text=Imagem+N%C3%A3o+Encontrada';">
+                <a href="https://instagram.com/justica.agil" target="_blank" class="client-link">@justica.agil</a>
+            </div>
+
+        </div>
+        
+        <!-- Seção de Clientes por Nicho -->
+        <div class="clients-section">
+            <h2>Conheça Alguns de Nossos Clientes</h2>
+            
+            <div class="client-category">
+                <h3>Criminal</h3>
+                <div class="client-links-container">
+                    <a href="https://www.instagram.com/yasmin_lino_adv/" target="_blank" class="client-tag">@yasmin_lino_adv</a>
+                    <a href="https://www.instagram.com/newtoncarvalhoadv/" target="_blank" class="client-tag">@newtoncarvalhoadv</a>
+                    <a href="https://www.instagram.com/weldertosta/" target="_blank" class="client-tag">@weldertosta</a>
+                    <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-tag">@adeliabarros_advogada</a>
+                    <a href="https://www.instagram.com/possoniadvogados" target="_blank" class="client-tag">@possoniadvogados</a>
+                </div>
+            </div>
+            
+            <div class="client-category">
+                <h3>Família</h3>
+                <div class="client-links-container">
+                    <a href="https://www.instagram.com/adv.suellenventuraa" target="_blank" class="client-tag">@adv.suellenventuraa</a>
+                    <a href="https://www.instagram.com/geovanemedeiros.adv" target="_blank" class="client-tag">@geovanemedeiros.adv</a>
+                    <a href="https://www.instagram.com/klebercolimadvogado/" target="_blank" class="client-tag">@klebercolimadvogado</a>
+                    <a href="https://www.instagram.com/fmelloadv" target="_blank" class="client-tag">@fmelloadv</a>
+                </div>
+            </div>
+            
+            <div class="client-category">
+                <h3>Imobiliário</h3>
+                <div class="client-links-container">
+                    <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-tag">@leandrokoller.adv</a>
+                    <a href="https://www.instagram.com/rodriguesportela.adv/" target="_blank" class="client-tag">@rodriguesportela.adv</a>
+                </div>
+            </div>
+            
+            <div class="client-category">
+                <h3>Trabalhista</h3>
+                <div class="client-links-container">
+                    <a href="https://www.instagram.com/denisnicoleteadvogado" target="_blank" class="client-tag">@denisnicoleteadvogado</a>
+                    <a href="https://www.instagram.com/kuimbelybrasil.adv/" target="_blank" class="client-tag">@kuimbelybrasil.adv</a>
+                    <a href="https://www.instagram.com/poubelefraga" target="_blank" class="client-tag">@poubelefraga</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 DMA DIGITAL. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="https://www.instagram.com/dma.digitaladv/" target="_blank">DMA DIGITAL</a>.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
