@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedbacks de Clientes - DMA DIGITAL</title>
+    <title>DMA Digital - Clientes e Resultados</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Reset e Estilos Globais */
@@ -19,7 +19,7 @@
 
         body {
             background-color: #000000;
-            color: #aa8960;
+            color: #E0E0E0;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             padding: 2rem 1rem;
@@ -33,18 +33,32 @@
 
         /* Logo */
         .logo {
-            max-width: 250px;
+            max-width: 220px;
             height: auto;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* Título Principal */
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
+        /* Seção de Introdução */
+        .intro-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-section h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #aa8960;
         }
 
         /* Botão de Contato (WhatsApp) */
@@ -52,45 +66,44 @@
             display: inline-block;
             background-color: #25D366; /* Verde do WhatsApp */
             color: #ffffff;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .whatsapp-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
         }
-
-        /* Estilo para o botão menor no final */
-        .whatsapp-button.small {
-            font-size: 1rem;
-            padding: 12px 25px;
-            margin-top: 3rem;
-            margin-bottom: 0;
+        
+        /* Seção de Feedbacks */
+        .feedback-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            color: #FFFFFF;
         }
-
+        
         /* Grid de Feedbacks */
         .feedback-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            row-gap: 3rem; /* Espaço maior entre as linhas para acomodar o botão */
+            row-gap: 3rem; 
             justify-content: center;
+            margin-bottom: 5rem;
         }
 
-        /* Container para cada item (card + botão) */
         .feedback-item {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Card de Feedback (apenas a mídia) */
         .feedback-card {
             border-radius: 12px;
             overflow: hidden;
@@ -98,13 +111,13 @@
             transition: transform 0.3s ease;
             background-color: #1a1a1a;
             width: 100%;
+            height: 450px;
         }
         
         .feedback-card:hover {
             transform: translateY(-5px);
         }
 
-        /* Estilo para imagem e vídeo dentro do card */
         .feedback-card img,
         .feedback-card video {
             width: 100%;
@@ -113,11 +126,10 @@
             display: block;
         }
 
-        /* Botão do cliente (fora do card) */
         .client-button {
             display: block;
             width: 100%;
-            margin-top: 1rem; /* Espaço entre o card e o botão */
+            margin-top: 1rem;
             background-color: #aa8960;
             color: #000000;
             padding: 12px 20px;
@@ -132,186 +144,373 @@
             background-color: #c9a77d;
         }
         
+        /* Seção Método 4 em 1 */
+        .method-section {
+            padding: 3rem 0;
+            background-color: #050505;
+            margin: 5rem 0;
+            border-radius: 12px;
+        }
+
+        .method-section h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+            padding: 0 1.5rem;
+        }
+
+        .method-card {
+            background-color: #111;
+            border: 2px solid #aa8960;
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(170, 137, 96, 0.2);
+        }
+        
+        .method-card-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .method-card-header svg {
+            width: 45px;
+            height: 45px;
+            color: #aa8960;
+            margin-bottom: 0.75rem;
+        }
+
+        .method-card-header h4 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .method-card-content {
+            width: 100%;
+            text-align: left;
+        }
+
+        .method-card-content ul {
+            list-style: none;
+            padding-left: 0;
+            color: #c5c5c5;
+        }
+
+        .method-card-content li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+        
+        .method-card-content li::before {
+            content: '✓';
+            color: #aa8960;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
         /* Seção de Clientes por Nicho */
         .clients-section {
             margin-top: 5rem;
-            padding-top: 3rem;
-            border-top: 1px solid #aa8960;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid #333;
         }
 
         .clients-section h2 {
             font-size: 1.8rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             text-transform: uppercase;
+            color: #FFFFFF;
         }
 
-        .client-category {
-            margin-bottom: 2.5rem;
+        .client-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .client-category-card {
+            background-color: #111;
+            border: 2px solid #aa8960; /* COR DA BORDA ALTERADA */
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* TRANSIÇÃO ALTERADA */
         }
 
-        .client-category h3 {
-            font-size: 1.4rem;
+        .client-category-card:hover {
+            transform: translateY(-5px); /* EFEITO HOVER ADICIONADO */
+            box-shadow: 0 5px 15px rgba(170, 137, 96, 0.15); /* EFEITO HOVER ADICIONADO */
+        }
+        
+        .client-category-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: #ffffff;
-            border-bottom: 1px solid #aa8960;
-            display: inline-block;
-            padding-bottom: 0.5rem;
+            font-weight: 700;
         }
-
-        .client-links-container {
+        
+        .client-links-list {
             display: flex;
             flex-wrap: wrap;
+            gap: 0.8rem;
             justify-content: center;
-            gap: 1rem;
         }
 
         .client-tag {
-            background-color: transparent;
-            border: 1px solid #aa8960;
+            background-color: #222;
+            border: 1px solid #444;
             color: #aa8960;
             padding: 8px 15px;
-            border-radius: 20px;
+            border-radius: 50px;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .client-tag:hover {
             background-color: #aa8960;
+            border-color: #aa8960;
             color: #000000;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
         }
 
         /* Rodapé */
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid #aa8960;
+            border-top: 1px solid #333;
             font-size: 0.9rem;
         }
         
-        footer a {
-            color: #aa8960;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
         
-        <img src="logo DMA PRETO.jpg" alt="Logo DMA Digital" class="logo">
+        <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606117_breno-dma-logo-dma-preto.jpg" alt="Logo DMA Digital" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/220x90/000000/aa8960?text=Logo+DMA';">
 
-        <h1>Feedbacks de Clientes - DMA Digital</h1>
+        <div class="intro-section">
+            <h1>A PROVA DE QUE NOSSO MÉTODO 4 EM 1 TRANSFORMA SUA PRESENÇA ONLINE EM CLIENTES REAIS.</h1>
+            <p>Estes são alguns dos escritórios que confiaram na DMA Digital e hoje colhem os frutos de uma estratégia de marketing bem executada.</p>
+        </div>
 
-        <a href="https://wa.me/5519982469775?text=Oi%20Beatriz%2C%20quero%20agendar%20uma%20reuni%C3%A3o%20com%20voc%C3%As!" class="whatsapp-button" target="_blank">
-            Entre em contato pelo WhatsApp
+        <a href="https://wa.me/5519982469775?text=Ol%C3%A1%2C%20Beatriz!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o." class="whatsapp-button" target="_blank">
+            Agendar Reunião
         </a>
-
-        <div class="feedback-grid">
-            
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <video autoplay loop muted playsinline controls>
-                        <source src="Video1.mp4" type="video/mp4">
-                        Seu navegador não suporta a tag de vídeo.
-                    </video>
+        
+        <div class="feedback-section">
+            <h2>Resultados e Feedbacks de Clientes</h2>
+            <div class="feedback-grid">
+                
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                        <video autoplay loop muted playsinline controls>
+                            <source src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606117_breno-dma-Video1.mp4" type="video/mp4">
+                            Seu navegador não suporta a tag de vídeo.
+                        </video>
+                    </div>
+                    <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-button">@adeliabarros_advogada</a>
                 </div>
-                <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-button">@adeliabarros_advogada</a>
-            </div>
 
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <img src="2.png" alt="Feedback do Cliente 2">
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                        <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606120_breno-dma-2.png" alt="Feedback do Cliente 2" onerror="this.onerror=null;this.src='https://placehold.co/300x450/1a1a1a/aa8960?text=Feedback';">
+                    </div>
+                    <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-button">@leandrokoller.adv</a>
                 </div>
-                <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-button">@leandrokoller.adv</a>
-            </div>
 
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <img src="3.png" alt="Feedback do Cliente 3">
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                        <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606120_breno-dma-3.png" alt="Feedback do Cliente 3" onerror="this.onerror=null;this.src='https://placehold.co/300x450/1a1a1a/aa8960?text=Feedback';">
+                    </div>
+                    <a href="https://www.instagram.com/advogadanayana/" target="_blank" class="client-button">@advogadanayana</a>
                 </div>
-                <a href="https://www.instagram.com/advogadanayana/" target="_blank" class="client-button">@advogadanayana</a>
-            </div>
 
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <img src="4.png" alt="Feedback do Cliente 4">
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                        <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606121_breno-dma-4.png" alt="Feedback do Cliente 4" onerror="this.onerror=null;this.src='https://placehold.co/300x450/1a1a1a/aa8960?text=Feedback';">
+                    </div>
+                    <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-button">@advinocentejordem</a>
                 </div>
-                <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-button">@advinocentejordem</a>
-            </div>
 
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <img src="5.png" alt="Feedback do Cliente 5">
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                         <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606122_breno-dma-5.png" alt="Feedback do Cliente 5" onerror="this.onerror=null;this.src='https://placehold.co/300x450/1a1a1a/aa8960?text=Feedback';">
+                    </div>
+                    <a href="https://www.instagram.com/yasmin_lino_adv/" target="_blank" class="client-button">@yasmin_lino_adv</a>
                 </div>
-                <a href="https://www.instagram.com/yasmin_lino_adv/" target="_blank" class="client-button">@yasmin_lino_adv</a>
-            </div>
 
-            <div class="feedback-item">
-                <div class="feedback-card">
-                    <img src="6.png" alt="Feedback do Cliente 6">
+                <div class="feedback-item">
+                    <div class="feedback-card">
+                         <img src="https://storage.googleapis.com/maker-studio-project-media-prod/attachment/1717944606122_breno-dma-6.png" alt="Feedback do Cliente 6" onerror="this.onerror=null;this.src='https://placehold.co/300x450/1a1a1a/aa8960?text=Feedback';">
+                    </div>
+                    <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-button">@advinocentejordem</a>
                 </div>
-                <a href="https://www.instagram.com/advinocentejordem/" target="_blank" class="client-button">@advinocentejordem</a>
-            </div>
 
+            </div>
+        </div>
+
+        <div class="method-section">
+            <h2>NOSSO MÉTODO 4 EM 1</h2>
+            <div class="method-grid">
+                 <div class="method-card">
+                    <div class="method-card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+                        <h4>Tráfego Pago</h4>
+                    </div>
+                    <div class="method-card-content">
+                        <ul>
+                            <li>Criação de artes, vídeos, reels e carrosséis ilimitados.</li>
+                            <li>Campanhas e conjunto de anúncios ilimitados.</li>
+                            <li>Anúncios em Meta, Google, YouTube e LinkedIn.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.742-.586 9.094 9.094 0 0 0 3.742-5.86c0-5.026-4.067-9.093-9.093-9.093s-9.093 4.067-9.093 9.093c0 1.83.54 3.538 1.47 5.013M15.75 18a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg>
+                        <h4>Treinamento e Vendas</h4>
+                    </div>
+                     <div class="method-card-content">
+                        <ul>
+                            <li>Treinamento gravado e Call individual.</li>
+                            <li>Acompanhamento comercial.</li>
+                            <li>Treinamento e acompanhamento ilimitado.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                        <h4>CRM</h4>
+                    </div>
+                     <div class="method-card-content">
+                        <ul>
+                            <li>Implementação e explicação detalhada.</li>
+                            <li>Escolha do CRM mais adequado para seu negócio.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z" /></svg>
+                        <h4>Suporte</h4>
+                    </div>
+                     <div class="method-card-content">
+                        <ul>
+                           <li>Grupo de suporte no WhatsApp 7 dias/semana.</li>
+                           <li>Atendimento humanizado, dentro e fora do horário comercial.</li>
+                           <li>Acompanhamento diário e reuniões para alinhamentos.</li>
+                           <li>Relatório semanal das métricas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="clients-section">
-            <h2>Conheça Alguns de Nossos Clientes</h2>
-            
-            <div class="client-category">
-                <h3>Criminal</h3>
-                <div class="client-links-container">
-                    <a href="https://www.instagram.com/yasmin_lino_adv/" target="_blank" class="client-tag">@yasmin_lino_adv</a>
-                    <a href="https://www.instagram.com/newtoncarvalhoadv/" target="_blank" class="client-tag">@newtoncarvalhoadv</a>
-                    <a href="https://www.instagram.com/weldertosta/" target="_blank" class="client-tag">@weldertosta</a>
-                    <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-tag">@adeliabarros_advogada</a>
-                    <a href="https://www.instagram.com/possoniadvogados" target="_blank" class="client-tag">@possoniadvogados</a>
+            <h2>Conheça o Perfil de Advogados que Confiam em Nós</h2>
+            <div class="client-categories-grid">
+                <div class="client-category-card">
+                    <h3>Criminal</h3>
+                    <div class="client-links-list">
+                        <a href="https://www.instagram.com/yasmin_lino_adv/" target="_blank" class="client-tag">@yasmin_lino_adv</a>
+                        <a href="https://www.instagram.com/newtoncarvalhoadv/" target="_blank" class="client-tag">@newtoncarvalhoadv</a>
+                        <a href="https://www.instagram.com/weldertosta/" target="_blank" class="client-tag">@weldertosta</a>
+                        <a href="https://www.instagram.com/adeliabarros_advogada/" target="_blank" class="client-tag">@adeliabarros_advogada</a>
+                        <a href="https://www.instagram.com/possoniadvogados" target="_blank" class="client-tag">@possoniadvogados</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="client-category">
-                <h3>Família</h3>
-                <div class="client-links-container">
-                    <a href="https://www.instagram.com/adv.suellenventuraa" target="_blank" class="client-tag">@adv.suellenventuraa</a>
-                    <a href="https://www.instagram.com/geovanemedeiros.adv" target="_blank" class="client-tag">@geovanemedeiros.adv</a>
-                    <a href="https://www.instagram.com/klebercolimadvogado/" target="_blank" class="client-tag">@klebercolimadvogado</a>
-                    <a href="https://www.instagram.com/fmelloadv" target="_blank" class="client-tag">@fmelloadv</a>
+                <div class="client-category-card">
+                    <h3>Família</h3>
+                    <div class="client-links-list">
+                        <a href="https://www.instagram.com/adv.suellenventuraa" target="_blank" class="client-tag">@adv.suellenventuraa</a>
+                        <a href="https://www.instagram.com/geovanemedeiros.adv" target="_blank" class="client-tag">@geovanemedeiros.adv</a>
+                        <a href="https://www.instagram.com/klebercolimadvogado/" target="_blank" class="client-tag">@klebercolimadvogado</a>
+                        <a href="https://www.instagram.com/fmelloadv" target="_blank" class="client-tag">@fmelloadv</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="client-category">
-                <h3>Imobiliário</h3>
-                <div class="client-links-container">
-                    <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-tag">@leandrokoller.adv</a>
-                    <a href="https://www.instagram.com/rodriguesportela.adv/" target="_blank" class="client-tag">@rodriguesportela.adv</a>
+                <div class="client-category-card">
+                    <h3>Imobiliário</h3>
+                    <div class="client-links-list">
+                        <a href="https://www.instagram.com/leandrokoller.adv/" target="_blank" class="client-tag">@leandrokoller.adv</a>
+                        <a href="https://www.instagram.com/rodriguesportela.adv/" target="_blank" class="client-tag">@rodriguesportela.adv</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="client-category">
-                <h3>Trabalhista</h3>
-                <div class="client-links-container">
-                    <a href="https://www.instagram.com/denisnicoleteadvogado" target="_blank" class="client-tag">@denisnicoleteadvogado</a>
-                    <a href="https://www.instagram.com/kuimbelybrasil.adv/" target="_blank" class="client-tag">@kuimbelybrasil.adv</a>
-                    <a href="https://www.instagram.com/poubelefraga" target="_blank" class="client-tag">@poubelefraga</a>
+                <div class="client-category-card">
+                    <h3>Trabalhista</h3>
+                    <div class="client-links-list">
+                        <a href="https://www.instagram.com/denisnicoleteadvogado" target="_blank" class="client-tag">@denisnicoleteadvogado</a>
+                        <a href="https://www.instagram.com/kuimbelybrasil.adv/" target="_blank" class="client-tag">@kuimbelybrasil.adv</a>
+                        <a href="https://www.instagram.com/poubelefraga" target="_blank" class="client-tag">@poubelefraga</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <a href="https://wa.me/5519982469775?text=Oi%20Beatriz%2C%20quero%20agendar%20uma%20reuni%C3%A3o%20com%20voc%C3%As!" class="whatsapp-button small" target="_blank">
-            Agende uma reunião
+        <a href="https://wa.me/5519982469775?text=Ol%C3%A1%2C%20Beatriz!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o." class="whatsapp-button" target="_blank">
+            Agendar Reunião
         </a>
 
         <footer>
             <p>&copy; 2025 DMA DIGITAL. Todos os direitos reservados.</p>
-            <p>Desenvolvido por <a href="https://www.instagram.com/dma.digitaladv/" target="_blank">DMA DIGITAL</a>.</p>
         </footer>
 
     </div>
-
+    
+    <a href="https://wa.me/5519982469775?text=Ol%C3%A1%2C%20Beatriz!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o." class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="bi bi-whatsapp">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
 </body>
 </html>
